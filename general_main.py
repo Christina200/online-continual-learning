@@ -83,7 +83,7 @@ if __name__ == "__main__":
     parser.add_argument('--plot_sample', dest='plot_sample', default=False,
                         type=boolean_string,
                         help='In NI scenario, should sample images be plotted (default: %(default)s)')
-    parser.add_argument('--data', dest='data', default="cifar10",
+    parser.add_argument('--data', dest='data', default="./data/cifar10",
                         help='Path to the dataset. (default: %(default)s)')
     parser.add_argument('--cl_type', dest='cl_type', default="nc", choices=['nc', 'ni'],
                         help='Continual learning type: new class "nc" or new instance "ni". (default: %(default)s)')

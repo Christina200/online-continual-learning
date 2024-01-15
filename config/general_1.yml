@@ -3,15 +3,18 @@ parameters:
   num_runs: 5
   seed: 0
   # optimizer
-  optimizer: SGD
+  optimizer: Adam
   epoch: 1
-  batch: 10
+  batch: 4
   test_batch: 128
   # validation
   val_size: 0.0
   num_val: 2
   num_runs_val: 3
   # data general
-  fix_order: False
+  fix_order: True
   plot_sample: False
   online: True
+  buffer_tracker: False
+  mem_iters: 1
+  error_analysis: False

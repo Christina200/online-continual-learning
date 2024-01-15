@@ -2,6 +2,7 @@ import torch
 from models.resnet import Reduced_ResNet18, SupConResNet
 from torchvision import transforms
 import torch.nn as nn
+from models.vit import ViT_pretrained
 
 
 default_trick = {'labels_trick': False, 'kd_trick': False, 'separated_softmax': False,
@@ -10,7 +11,7 @@ default_trick = {'labels_trick': False, 'kd_trick': False, 'separated_softmax': 
 
 input_size_match = {
     'cifar100': [3, 32, 32],
-    'cifar10': [3, 32, 32],
+    'cifar10': [3, 224, 224],
     'core50': [3, 128, 128],
     'mini_imagenet': [3, 84, 84],
     'openloris': [3, 50, 50]
@@ -34,7 +35,10 @@ transforms_match = {
         transforms.ToTensor(),
         ]),
     'cifar10': transforms.Compose([
+        transforms.ToPILImage(),
+        transforms.Resize((224, 224)), 
         transforms.ToTensor(),
+        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
         ]),
     'mini_imagenet': transforms.Compose([
         transforms.ToTensor()]),
@@ -55,7 +59,7 @@ def setup_architecture(params):
     if params.data == 'cifar100':
         return Reduced_ResNet18(nclass)
     elif params.data == 'cifar10':
-        return Reduced_ResNet18(nclass)
+        return  ViT_pretrained(nclass) #Reduced_ResNet18(nclass)
     elif params.data == 'core50':
         model = Reduced_ResNet18(nclass)
         model.linear = nn.Linear(2560, nclass, bias=True)

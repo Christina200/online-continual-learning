@@ -1,0 +1,185 @@
+Namespace(num_runs=1, seed=0, val_size=0.1, num_val=3, num_runs_val=3, error_analysis=False, verbose=True, store=False, save_path=None, agent='AGEM', update='random', retrieve='random', optimizer='Adam', learning_rate=0.0001, epoch=1, batch=4, test_batch=128, weight_decay=0.0001, num_tasks=10, fix_order=True, plot_sample=False, data='cifar100', cl_type='nc', ns_factor=(0.0, 0.4, 0.8, 1.2, 1.6, 2.0, 2.4, 2.8, 3.2, 3.6), ns_type='noise', ns_task=(1, 1, 2, 2, 2, 2), online=True, mem_size=1000, eps_mem_batch=10, lambda_=100, alpha=0.9, fisher_update_after=50, subsample=50, gss_mem_strength=10, gss_batch_size=10, k=5, aser_type='asvm', n_smp_cls=2.0, stm_capacity=1000, classifier_chill=0.01, log_alpha=-300, minlr=0.0005, clip=10.0, mem_epoch=70, labels_trick=False, separated_softmax=False, kd_trick=False, kd_trick_star=False, review_trick=False, ncm_trick=False, mem_iters=1, min_delta=0.0, patience=0, cumulative_delta=False, temp=0.07, buffer_tracker=False, warmup=4, head='mlp', cuda=True)
+Setting up data stream
+Downloading https://www.cs.toronto.edu/~kriz/cifar-100-python.tar.gz to ./datasets/cifar100/cifar-100-python.tar.gz
+  0%|          | 0/169001437 [00:00<?, ?it/s]  0%|          | 98304/169001437 [00:00<03:08, 893892.51it/s]  1%|          | 884736/169001437 [00:00<00:37, 4542838.07it/s]  4%|▍         | 6520832/169001437 [00:00<00:06, 26868287.93it/s]  8%|▊         | 13402112/169001437 [00:00<00:03, 42789926.03it/s] 13%|█▎        | 21823488/169001437 [00:00<00:02, 57339034.80it/s] 17%|█▋        | 28966912/169001437 [00:00<00:02, 61564611.84it/s] 22%|██▏       | 37388288/169001437 [00:00<00:01, 68815357.13it/s] 27%|██▋       | 44957696/169001437 [00:00<00:01, 70432955.96it/s] 31%|███▏      | 53018624/169001437 [00:00<00:01, 73414025.62it/s] 36%|███▌      | 60882944/169001437 [00:01<00:01, 74728394.97it/s] 41%|████      | 68550656/169001437 [00:01<00:01, 75307549.42it/s] 45%|████▌     | 76840960/169001437 [00:01<00:01, 76977903.54it/s] 50%|█████     | 84574208/169001437 [00:01<00:01, 76179620.82it/s] 55%|█████▍    | 92897280/169001437 [00:01<00:00, 78261996.69it/s] 60%|█████▉    | 100761600/169001437 [00:01<00:00, 76631080.77it/s] 65%|██████▍   | 109117440/169001437 [00:01<00:00, 78661207.40it/s] 69%|██████▉   | 117014528/169001437 [00:01<00:00, 76803489.28it/s] 74%|███████▍  | 125304832/169001437 [00:01<00:00, 77954516.13it/s] 79%|███████▉  | 133136384/169001437 [00:01<00:00, 77062285.54it/s] 84%|████████▎ | 141262848/169001437 [00:02<00:00, 78081626.30it/s] 88%|████████▊ | 149094400/169001437 [00:02<00:00, 77122356.74it/s] 93%|█████████▎| 157286400/169001437 [00:02<00:00, 78021028.35it/s] 98%|█████████▊| 165117952/169001437 [00:02<00:00, 77128851.97it/s]100%|██████████| 169001437/169001437 [00:02<00:00, 69848927.76it/s]
+Extracting ./datasets/cifar100/cifar-100-python.tar.gz to ./datasets/cifar100
+Files already downloaded and verified
+data setup time: 4.926154136657715
+Task: 0, Labels:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Task: 1, Labels:[10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+Task: 2, Labels:[20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Task: 3, Labels:[30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
+Task: 4, Labels:[40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+Task: 5, Labels:[50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
+Task: 6, Labels:[60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+Task: 7, Labels:[70, 71, 72, 73, 74, 75, 76, 77, 78, 79]
+Task: 8, Labels:[80, 81, 82, 83, 84, 85, 86, 87, 88, 89]
+Task: 9, Labels:[90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+buffer has 1000 slots
+-----------run 0 training batch 0-------------
+size: (5000, 32, 32, 3), (5000,)
+==>>> it: 1, avg. loss: 3.993833, running train acc: 0.250
+==>>> it: 101, avg. loss: 2.804229, running train acc: 0.088
+==>>> it: 201, avg. loss: 2.622942, running train acc: 0.110
+==>>> it: 301, avg. loss: 2.525666, running train acc: 0.126
+==>>> it: 401, avg. loss: 2.446324, running train acc: 0.157
+==>>> it: 501, avg. loss: 2.365784, running train acc: 0.176
+==>>> it: 601, avg. loss: 2.308226, running train acc: 0.195
+==>>> it: 701, avg. loss: 2.247500, running train acc: 0.213
+==>>> it: 801, avg. loss: 2.182757, running train acc: 0.232
+==>>> it: 901, avg. loss: 2.124378, running train acc: 0.251
+==>>> it: 1001, avg. loss: 2.077254, running train acc: 0.270
+==>>> it: 1101, avg. loss: 2.038030, running train acc: 0.283
+==>>> it: 1201, avg. loss: 1.987182, running train acc: 0.303
+[0.533 0.    0.    0.    0.    0.    0.    0.    0.    0.   ]
+-----------run 0 training batch 1-------------
+size: (5000, 32, 32, 3), (5000,)
+==>>> it: 1, avg. loss: 10.956258, running train acc: 0.000
+==>>> it: 101, avg. loss: 2.778091, running train acc: 0.196
+==>>> it: 201, avg. loss: 2.334762, running train acc: 0.264
+==>>> it: 301, avg. loss: 2.127533, running train acc: 0.310
+==>>> it: 401, avg. loss: 1.961524, running train acc: 0.356
+==>>> it: 501, avg. loss: 1.879916, running train acc: 0.371
+==>>> it: 601, avg. loss: 1.825897, running train acc: 0.386
+==>>> it: 701, avg. loss: 1.776557, running train acc: 0.397
+==>>> it: 801, avg. loss: 1.739084, running train acc: 0.409
+==>>> it: 901, avg. loss: 1.704361, running train acc: 0.418
+==>>> it: 1001, avg. loss: 1.657046, running train acc: 0.432
+==>>> it: 1101, avg. loss: 1.620681, running train acc: 0.442
+==>>> it: 1201, avg. loss: 1.594640, running train acc: 0.451
+[0.   0.59 0.   0.   0.   0.   0.   0.   0.   0.  ]
+-----------run 0 training batch 2-------------
+size: (5000, 32, 32, 3), (5000,)
+==>>> it: 1, avg. loss: 11.087845, running train acc: 0.000
+==>>> it: 101, avg. loss: 2.684470, running train acc: 0.270
+==>>> it: 201, avg. loss: 2.109472, running train acc: 0.390
+==>>> it: 301, avg. loss: 1.875016, running train acc: 0.441
+==>>> it: 401, avg. loss: 1.789059, running train acc: 0.455
+==>>> it: 501, avg. loss: 1.702353, running train acc: 0.473
+==>>> it: 601, avg. loss: 1.620914, running train acc: 0.491
+==>>> it: 701, avg. loss: 1.544318, running train acc: 0.513
+==>>> it: 801, avg. loss: 1.480417, running train acc: 0.530
+==>>> it: 901, avg. loss: 1.435864, running train acc: 0.545
+==>>> it: 1001, avg. loss: 1.400558, running train acc: 0.553
+==>>> it: 1101, avg. loss: 1.364440, running train acc: 0.564
+==>>> it: 1201, avg. loss: 1.332810, running train acc: 0.572
+[0.    0.001 0.686 0.    0.    0.    0.    0.    0.    0.   ]
+-----------run 0 training batch 3-------------
+size: (5000, 32, 32, 3), (5000,)
+==>>> it: 1, avg. loss: 11.564201, running train acc: 0.000
+==>>> it: 101, avg. loss: 2.695304, running train acc: 0.255
+==>>> it: 201, avg. loss: 2.092447, running train acc: 0.384
+==>>> it: 301, avg. loss: 1.870761, running train acc: 0.438
+==>>> it: 401, avg. loss: 1.712834, running train acc: 0.475
+==>>> it: 501, avg. loss: 1.612491, running train acc: 0.497
+==>>> it: 601, avg. loss: 1.532866, running train acc: 0.521
+==>>> it: 701, avg. loss: 1.478740, running train acc: 0.533
+==>>> it: 801, avg. loss: 1.441193, running train acc: 0.541
+==>>> it: 901, avg. loss: 1.400822, running train acc: 0.552
+==>>> it: 1001, avg. loss: 1.368907, running train acc: 0.560
+==>>> it: 1101, avg. loss: 1.330834, running train acc: 0.569
+==>>> it: 1201, avg. loss: 1.303737, running train acc: 0.578
+[0.    0.    0.028 0.698 0.    0.    0.    0.    0.    0.   ]
+-----------run 0 training batch 4-------------
+size: (5000, 32, 32, 3), (5000,)
+==>>> it: 1, avg. loss: 10.206309, running train acc: 0.000
+==>>> it: 101, avg. loss: 2.449043, running train acc: 0.316
+==>>> it: 201, avg. loss: 1.873216, running train acc: 0.434
+==>>> it: 301, avg. loss: 1.606396, running train acc: 0.495
+==>>> it: 401, avg. loss: 1.495334, running train acc: 0.525
+==>>> it: 501, avg. loss: 1.414534, running train acc: 0.543
+==>>> it: 601, avg. loss: 1.333277, running train acc: 0.564
+==>>> it: 701, avg. loss: 1.283171, running train acc: 0.580
+==>>> it: 801, avg. loss: 1.258976, running train acc: 0.585
+==>>> it: 901, avg. loss: 1.212918, running train acc: 0.600
+==>>> it: 1001, avg. loss: 1.168255, running train acc: 0.613
+==>>> it: 1101, avg. loss: 1.141378, running train acc: 0.621
+==>>> it: 1201, avg. loss: 1.113495, running train acc: 0.629
+[0.    0.    0.    0.    0.727 0.    0.    0.    0.    0.   ]
+-----------run 0 training batch 5-------------
+size: (5000, 32, 32, 3), (5000,)
+==>>> it: 1, avg. loss: 10.526207, running train acc: 0.000
+==>>> it: 101, avg. loss: 2.417015, running train acc: 0.338
+==>>> it: 201, avg. loss: 1.857145, running train acc: 0.428
+==>>> it: 301, avg. loss: 1.603591, running train acc: 0.481
+==>>> it: 401, avg. loss: 1.459028, running train acc: 0.516
+==>>> it: 501, avg. loss: 1.338775, running train acc: 0.552
+==>>> it: 601, avg. loss: 1.279140, running train acc: 0.569
+==>>> it: 701, avg. loss: 1.230622, running train acc: 0.581
+==>>> it: 801, avg. loss: 1.175778, running train acc: 0.602
+==>>> it: 901, avg. loss: 1.146757, running train acc: 0.610
+==>>> it: 1001, avg. loss: 1.115518, running train acc: 0.618
+==>>> it: 1101, avg. loss: 1.095488, running train acc: 0.622
+==>>> it: 1201, avg. loss: 1.076773, running train acc: 0.630
+[0.    0.    0.006 0.    0.002 0.717 0.    0.    0.    0.   ]
+-----------run 0 training batch 6-------------
+size: (5000, 32, 32, 3), (5000,)
+==>>> it: 1, avg. loss: 11.195624, running train acc: 0.000
+==>>> it: 101, avg. loss: 2.245290, running train acc: 0.395
+==>>> it: 201, avg. loss: 1.701099, running train acc: 0.489
+==>>> it: 301, avg. loss: 1.491452, running train acc: 0.531
+==>>> it: 401, avg. loss: 1.352380, running train acc: 0.563
+==>>> it: 501, avg. loss: 1.272889, running train acc: 0.585
+==>>> it: 601, avg. loss: 1.205948, running train acc: 0.607
+==>>> it: 701, avg. loss: 1.161435, running train acc: 0.619
+==>>> it: 801, avg. loss: 1.108925, running train acc: 0.632
+==>>> it: 901, avg. loss: 1.081403, running train acc: 0.639
+==>>> it: 1001, avg. loss: 1.056359, running train acc: 0.649
+==>>> it: 1101, avg. loss: 1.036862, running train acc: 0.656
+==>>> it: 1201, avg. loss: 1.011995, running train acc: 0.662
+[0.    0.    0.    0.    0.    0.037 0.752 0.    0.    0.   ]
+-----------run 0 training batch 7-------------
+size: (5000, 32, 32, 3), (5000,)
+==>>> it: 1, avg. loss: 10.819380, running train acc: 0.000
+==>>> it: 101, avg. loss: 2.373679, running train acc: 0.346
+==>>> it: 201, avg. loss: 1.830444, running train acc: 0.447
+==>>> it: 301, avg. loss: 1.601811, running train acc: 0.506
+==>>> it: 401, avg. loss: 1.442602, running train acc: 0.550
+==>>> it: 501, avg. loss: 1.340775, running train acc: 0.577
+==>>> it: 601, avg. loss: 1.268817, running train acc: 0.594
+==>>> it: 701, avg. loss: 1.227366, running train acc: 0.601
+==>>> it: 801, avg. loss: 1.194847, running train acc: 0.607
+==>>> it: 901, avg. loss: 1.159164, running train acc: 0.617
+==>>> it: 1001, avg. loss: 1.128910, running train acc: 0.627
+==>>> it: 1101, avg. loss: 1.113045, running train acc: 0.633
+==>>> it: 1201, avg. loss: 1.088432, running train acc: 0.643
+/home/christina/anaconda3/envs/lora_vit/lib/python3.11/site-packages/numpy/core/_methods.py:206: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/home/christina/anaconda3/envs/lora_vit/lib/python3.11/site-packages/numpy/core/_methods.py:198: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+[0.    0.    0.    0.    0.    0.    0.003 0.729 0.    0.   ]
+-----------run 0 training batch 8-------------
+size: (5000, 32, 32, 3), (5000,)
+==>>> it: 1, avg. loss: 10.224571, running train acc: 0.000
+==>>> it: 101, avg. loss: 2.416571, running train acc: 0.319
+==>>> it: 201, avg. loss: 1.868331, running train acc: 0.427
+==>>> it: 301, avg. loss: 1.652117, running train acc: 0.474
+==>>> it: 401, avg. loss: 1.488929, running train acc: 0.524
+==>>> it: 501, avg. loss: 1.404204, running train acc: 0.548
+==>>> it: 601, avg. loss: 1.300800, running train acc: 0.578
+==>>> it: 701, avg. loss: 1.259212, running train acc: 0.593
+==>>> it: 801, avg. loss: 1.211162, running train acc: 0.605
+==>>> it: 901, avg. loss: 1.173406, running train acc: 0.614
+==>>> it: 1001, avg. loss: 1.140091, running train acc: 0.625
+==>>> it: 1101, avg. loss: 1.115585, running train acc: 0.632
+==>>> it: 1201, avg. loss: 1.091552, running train acc: 0.638
+[0.    0.    0.    0.    0.    0.    0.    0.039 0.704 0.   ]
+-----------run 0 training batch 9-------------
+size: (5000, 32, 32, 3), (5000,)
+==>>> it: 1, avg. loss: 9.501064, running train acc: 0.000
+==>>> it: 101, avg. loss: 2.373120, running train acc: 0.326
+==>>> it: 201, avg. loss: 1.773279, running train acc: 0.465
+==>>> it: 301, avg. loss: 1.459812, running train acc: 0.550
+==>>> it: 401, avg. loss: 1.310649, running train acc: 0.596
+==>>> it: 501, avg. loss: 1.201709, running train acc: 0.629
+==>>> it: 601, avg. loss: 1.127088, running train acc: 0.650
+==>>> it: 701, avg. loss: 1.066655, running train acc: 0.666
+==>>> it: 801, avg. loss: 1.037032, running train acc: 0.675
+==>>> it: 901, avg. loss: 1.005458, running train acc: 0.683
+==>>> it: 1001, avg. loss: 0.972956, running train acc: 0.692
+==>>> it: 1101, avg. loss: 0.940280, running train acc: 0.703
+==>>> it: 1201, avg. loss: 0.913942, running train acc: 0.708
+[0.    0.    0.001 0.    0.    0.    0.    0.001 0.01  0.805]
+-----------run 0-----------avg_end_acc 0.08170000000000001-----------train time 4708.516039133072
+----------- Total 1 run: 4713.44226026535s -----------
+----------- Avg_End_Acc (0.08170000000000001, nan) Avg_End_Fgt (0.6123999999999999, nan) Avg_Acc (0.18732031746031746, nan) Avg_Bwtp (0.0, nan) Avg_Fwt (0.0, nan)-----------

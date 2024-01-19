@@ -10,7 +10,7 @@ default_trick = {'labels_trick': False, 'kd_trick': False, 'separated_softmax': 
 
 
 input_size_match = {
-    'cifar100': [3, 32, 32],
+    'cifar100': [3, 224, 224],
     'cifar10': [3, 224, 224],
     'core50': [3, 128, 128],
     'mini_imagenet': [3, 84, 84],
@@ -32,6 +32,8 @@ transforms_match = {
         transforms.ToTensor(),
         ]),
     'cifar100': transforms.Compose([
+        transforms.ToPILImage(),
+        transforms.Resize((224, 224)), 
         transforms.ToTensor(),
         ]),
     'cifar10': transforms.Compose([
@@ -57,7 +59,7 @@ def setup_architecture(params):
         from models.ndpm.ndpm import Ndpm
         return Ndpm(params)
     if params.data == 'cifar100':
-        return Reduced_ResNet18(nclass)
+        return ViT_pretrained(nclass) #Reduced_ResNet18(nclass)
     elif params.data == 'cifar10':
         return  ViT_pretrained(nclass) #Reduced_ResNet18(nclass)
     elif params.data == 'core50':

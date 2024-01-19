@@ -1,0 +1,157 @@
+namespace(num_runs=5, seed=0, optimizer='Adam', epoch=1, batch=4, test_batch=128, val_size=0.0, num_val=2, num_runs_val=3, fix_order=True, plot_sample=False, online=True, buffer_tracker=False, mem_iters=1, error_analysis=False, verbose=False, cuda=True, train_val=False, trick={'labels_trick': False, 'kd_trick': False, 'separated_softmax': False, 'review_trick': False, 'ncm_trick': False, 'kd_trick_star': False}, data='cifar10', num_tasks=5, cl_type='nc', data_name='cifar10_nc', agent='ER', update='random', retrieve='random', mem_size=1000, eps_mem_batch=10, model_name='Naive_ER_1k')
+
+Setting up data stream
+Files already downloaded and verified
+Files already downloaded and verified
+data setup time: 1.1154937744140625
+result/cifar10/nc
+Task: 0, Labels:[0, 1]
+Task: 1, Labels:[2, 3]
+Task: 2, Labels:[4, 5]
+Task: 3, Labels:[6, 7]
+Task: 4, Labels:[8, 9]
+28
+{'learning_rate': 0.0001, 'weight_decay': 0.0001}
+buffer has 1000 slots
+-----------tune run 0 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.986 0.   ]
+-----------tune run 0 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.9345 0.84  ]
+-----------tune run 0-----------avg_end_acc 0.88725-----------
+buffer has 1000 slots
+-----------tune run 1 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.9865 0.    ]
+-----------tune run 1 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.8495 0.9035]
+-----------tune run 1-----------avg_end_acc 0.8765000000000001-----------
+buffer has 1000 slots
+-----------tune run 2 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.9835 0.    ]
+-----------tune run 2 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.849 0.891]
+-----------tune run 2-----------avg_end_acc 0.87-----------
+{'learning_rate': 0.0001, 'weight_decay': 0.001}
+buffer has 1000 slots
+-----------tune run 0 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.9795 0.    ]
+-----------tune run 0 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.92   0.8515]
+-----------tune run 0-----------avg_end_acc 0.88575-----------
+buffer has 1000 slots
+-----------tune run 1 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.9835 0.    ]
+-----------tune run 1 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.813  0.8985]
+-----------tune run 1-----------avg_end_acc 0.85575-----------
+buffer has 1000 slots
+-----------tune run 2 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.9695 0.    ]
+-----------tune run 2 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.762  0.9085]
+-----------tune run 2-----------avg_end_acc 0.83525-----------
+{'learning_rate': 0.0001, 'weight_decay': 0.01}
+buffer has 1000 slots
+-----------tune run 0 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.9575 0.    ]
+-----------tune run 0 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.7245 0.773 ]
+-----------tune run 0-----------avg_end_acc 0.74875-----------
+buffer has 1000 slots
+-----------tune run 1 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.9545 0.    ]
+-----------tune run 1 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.78   0.8125]
+-----------tune run 1-----------avg_end_acc 0.79625-----------
+buffer has 1000 slots
+-----------tune run 2 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.9535 0.    ]
+-----------tune run 2 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.6915 0.7975]
+-----------tune run 2-----------avg_end_acc 0.7444999999999999-----------
+{'learning_rate': 0.0001, 'weight_decay': 0.1}
+buffer has 1000 slots
+-----------tune run 0 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.751 0.   ]
+-----------tune run 0 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.49   0.6855]
+-----------tune run 0-----------avg_end_acc 0.58775-----------
+buffer has 1000 slots
+-----------tune run 1 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.8655 0.    ]
+-----------tune run 1 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.657  0.5675]
+-----------tune run 1-----------avg_end_acc 0.61225-----------
+buffer has 1000 slots
+-----------tune run 2 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.9085 0.    ]
+-----------tune run 2 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.5675 0.6655]
+-----------tune run 2-----------avg_end_acc 0.6165-----------
+{'learning_rate': 0.0003, 'weight_decay': 0.0001}
+buffer has 1000 slots
+-----------tune run 0 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.8745 0.    ]
+-----------tune run 0 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.65   0.6185]
+-----------tune run 0-----------avg_end_acc 0.63425-----------
+buffer has 1000 slots
+-----------tune run 1 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.8635 0.    ]
+-----------tune run 1 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.5065 0.7155]
+-----------tune run 1-----------avg_end_acc 0.611-----------
+buffer has 1000 slots
+-----------tune run 2 task 0-------------
+size: (10000, 32, 32, 3), (10000,)
+[0.8845 0.    ]
+-----------tune run 2 task 1-------------
+size: (10000, 32, 32, 3), (10000,)
+Traceback (most recent call last):
+  File "/home/christina/online-continual-learning/main_tune.py", line 57, in <module>
+    main(args)
+  File "/home/christina/online-continual-learning/main_tune.py", line 39, in main
+    multiple_run_tune_separate(final_default_params, tune_params, args.save_path)
+  File "/home/christina/online-continual-learning/experiment/run.py", line 218, in multiple_run_tune_separate
+    single_tune(data_continuum, default_params, tune_params, params_keep, tmp_acc, run)
+  File "/home/christina/online-continual-learning/experiment/run.py", line 252, in single_tune
+    best_params = tune_hyper(tune_data, tune_test_loaders, default_params, tune_params, )
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/christina/online-continual-learning/experiment/tune_hyperparam.py", line 30, in tune_hyper
+    agent.train_learner(x_train, y_train)
+  File "/home/christina/online-continual-learning/agents/exp_replay.py", line 92, in train_learner
+    self.buffer.update(batch_x, batch_y)
+  File "/home/christina/online-continual-learning/utils/buffer/buffer.py", line 37, in update
+    return self.update_method.update(buffer=self, x=x, y=y, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/christina/online-continual-learning/utils/buffer/reservoir_update.py", line 35, in update
+    indices = torch.FloatTensor(x.size(0)).to(x.device).uniform_(0, buffer.n_seen_so_far).long()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

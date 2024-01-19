@@ -1,0 +1,283 @@
+Namespace(num_runs=1, seed=0, val_size=0.1, num_val=3, num_runs_val=3, error_analysis=False, verbose=True, store=False, save_path=None, agent='ER', update='random', retrieve='random', optimizer='Adam', learning_rate=0.0001, epoch=1, batch=4, test_batch=128, weight_decay=0.0001, num_tasks=5, fix_order=True, plot_sample=False, data='cifar10', cl_type='nc', ns_factor=(0.0, 0.4, 0.8, 1.2, 1.6, 2.0, 2.4, 2.8, 3.2, 3.6), ns_type='noise', ns_task=(1, 1, 2, 2, 2, 2), online=True, mem_size=1000, eps_mem_batch=10, lambda_=100, alpha=0.9, fisher_update_after=50, subsample=50, gss_mem_strength=10, gss_batch_size=10, k=5, aser_type='asvm', n_smp_cls=2.0, stm_capacity=1000, classifier_chill=0.01, log_alpha=-300, minlr=0.0005, clip=10.0, mem_epoch=70, labels_trick=False, separated_softmax=False, kd_trick=False, kd_trick_star=False, review_trick=False, ncm_trick=False, mem_iters=1, min_delta=0.0, patience=0, cumulative_delta=False, temp=0.07, buffer_tracker=False, warmup=4, head='mlp', cuda=True)
+Setting up data stream
+Files already downloaded and verified
+Files already downloaded and verified
+data setup time: 1.1107656955718994
+Task: 0, Labels:[0, 1]
+Task: 1, Labels:[2, 3]
+Task: 2, Labels:[4, 5]
+Task: 3, Labels:[6, 7]
+Task: 4, Labels:[8, 9]
+buffer has 1000 slots
+-----------run 0 training batch 0-------------
+size: (10000, 32, 32, 3), (10000,)
+==>>> it: 1, avg. loss: 1.744717, running train acc: 0.375
+==>>> it: 1, mem avg. loss: 0.166591, running mem acc: 1.000
+==>>> it: 101, avg. loss: 0.201512, running train acc: 0.929
+==>>> it: 101, mem avg. loss: 0.139000, running mem acc: 0.969
+==>>> it: 201, avg. loss: 0.144908, running train acc: 0.949
+==>>> it: 201, mem avg. loss: 0.101935, running mem acc: 0.973
+==>>> it: 301, avg. loss: 0.141216, running train acc: 0.954
+==>>> it: 301, mem avg. loss: 0.094218, running mem acc: 0.974
+==>>> it: 401, avg. loss: 0.122200, running train acc: 0.960
+==>>> it: 401, mem avg. loss: 0.081145, running mem acc: 0.977
+==>>> it: 501, avg. loss: 0.117618, running train acc: 0.960
+==>>> it: 501, mem avg. loss: 0.079877, running mem acc: 0.977
+==>>> it: 601, avg. loss: 0.109711, running train acc: 0.962
+==>>> it: 601, mem avg. loss: 0.073123, running mem acc: 0.978
+==>>> it: 701, avg. loss: 0.102397, running train acc: 0.964
+==>>> it: 701, mem avg. loss: 0.068376, running mem acc: 0.978
+==>>> it: 801, avg. loss: 0.106185, running train acc: 0.964
+==>>> it: 801, mem avg. loss: 0.065203, running mem acc: 0.980
+==>>> it: 901, avg. loss: 0.102153, running train acc: 0.965
+==>>> it: 901, mem avg. loss: 0.061006, running mem acc: 0.981
+==>>> it: 1001, avg. loss: 0.099963, running train acc: 0.966
+==>>> it: 1001, mem avg. loss: 0.058554, running mem acc: 0.981
+==>>> it: 1101, avg. loss: 0.097117, running train acc: 0.967
+==>>> it: 1101, mem avg. loss: 0.055999, running mem acc: 0.982
+==>>> it: 1201, avg. loss: 0.096017, running train acc: 0.967
+==>>> it: 1201, mem avg. loss: 0.054328, running mem acc: 0.983
+==>>> it: 1301, avg. loss: 0.094817, running train acc: 0.967
+==>>> it: 1301, mem avg. loss: 0.053236, running mem acc: 0.983
+==>>> it: 1401, avg. loss: 0.096782, running train acc: 0.966
+==>>> it: 1401, mem avg. loss: 0.051661, running mem acc: 0.984
+==>>> it: 1501, avg. loss: 0.097167, running train acc: 0.966
+==>>> it: 1501, mem avg. loss: 0.052650, running mem acc: 0.983
+==>>> it: 1601, avg. loss: 0.094762, running train acc: 0.967
+==>>> it: 1601, mem avg. loss: 0.052692, running mem acc: 0.983
+==>>> it: 1701, avg. loss: 0.093893, running train acc: 0.967
+==>>> it: 1701, mem avg. loss: 0.050935, running mem acc: 0.984
+==>>> it: 1801, avg. loss: 0.093721, running train acc: 0.967
+==>>> it: 1801, mem avg. loss: 0.050226, running mem acc: 0.984
+==>>> it: 1901, avg. loss: 0.092902, running train acc: 0.967
+==>>> it: 1901, mem avg. loss: 0.050510, running mem acc: 0.984
+==>>> it: 2001, avg. loss: 0.094074, running train acc: 0.967
+==>>> it: 2001, mem avg. loss: 0.050730, running mem acc: 0.984
+==>>> it: 2101, avg. loss: 0.092977, running train acc: 0.967
+==>>> it: 2101, mem avg. loss: 0.049539, running mem acc: 0.984
+==>>> it: 2201, avg. loss: 0.093580, running train acc: 0.967
+==>>> it: 2201, mem avg. loss: 0.048978, running mem acc: 0.984
+==>>> it: 2301, avg. loss: 0.092340, running train acc: 0.968
+==>>> it: 2301, mem avg. loss: 0.047892, running mem acc: 0.984
+==>>> it: 2401, avg. loss: 0.091714, running train acc: 0.968
+==>>> it: 2401, mem avg. loss: 0.047282, running mem acc: 0.985
+[0.986 0.    0.    0.    0.   ]
+-----------run 0 training batch 1-------------
+size: (10000, 32, 32, 3), (10000,)
+==>>> it: 1, avg. loss: 10.577463, running train acc: 0.000
+==>>> it: 1, mem avg. loss: 0.012279, running mem acc: 1.000
+==>>> it: 101, avg. loss: 1.164806, running train acc: 0.608
+==>>> it: 101, mem avg. loss: 0.457857, running mem acc: 0.851
+==>>> it: 201, avg. loss: 0.904678, running train acc: 0.665
+==>>> it: 201, mem avg. loss: 0.372420, running mem acc: 0.874
+==>>> it: 301, avg. loss: 0.764700, running train acc: 0.716
+==>>> it: 301, mem avg. loss: 0.312887, running mem acc: 0.896
+==>>> it: 401, avg. loss: 0.685265, running train acc: 0.746
+==>>> it: 401, mem avg. loss: 0.275426, running mem acc: 0.908
+==>>> it: 501, avg. loss: 0.637644, running train acc: 0.762
+==>>> it: 501, mem avg. loss: 0.242363, running mem acc: 0.918
+==>>> it: 601, avg. loss: 0.597811, running train acc: 0.779
+==>>> it: 601, mem avg. loss: 0.216767, running mem acc: 0.927
+==>>> it: 701, avg. loss: 0.569784, running train acc: 0.789
+==>>> it: 701, mem avg. loss: 0.201459, running mem acc: 0.931
+==>>> it: 801, avg. loss: 0.550117, running train acc: 0.795
+==>>> it: 801, mem avg. loss: 0.196985, running mem acc: 0.933
+==>>> it: 901, avg. loss: 0.525301, running train acc: 0.806
+==>>> it: 901, mem avg. loss: 0.186475, running mem acc: 0.937
+==>>> it: 1001, avg. loss: 0.507720, running train acc: 0.812
+==>>> it: 1001, mem avg. loss: 0.177413, running mem acc: 0.941
+==>>> it: 1101, avg. loss: 0.490720, running train acc: 0.818
+==>>> it: 1101, mem avg. loss: 0.173985, running mem acc: 0.942
+==>>> it: 1201, avg. loss: 0.473749, running train acc: 0.823
+==>>> it: 1201, mem avg. loss: 0.163954, running mem acc: 0.946
+==>>> it: 1301, avg. loss: 0.458847, running train acc: 0.829
+==>>> it: 1301, mem avg. loss: 0.158362, running mem acc: 0.948
+==>>> it: 1401, avg. loss: 0.447833, running train acc: 0.833
+==>>> it: 1401, mem avg. loss: 0.154374, running mem acc: 0.950
+==>>> it: 1501, avg. loss: 0.439819, running train acc: 0.837
+==>>> it: 1501, mem avg. loss: 0.149812, running mem acc: 0.951
+==>>> it: 1601, avg. loss: 0.429872, running train acc: 0.839
+==>>> it: 1601, mem avg. loss: 0.146851, running mem acc: 0.952
+==>>> it: 1701, avg. loss: 0.421742, running train acc: 0.842
+==>>> it: 1701, mem avg. loss: 0.143049, running mem acc: 0.954
+==>>> it: 1801, avg. loss: 0.415808, running train acc: 0.844
+==>>> it: 1801, mem avg. loss: 0.143112, running mem acc: 0.954
+==>>> it: 1901, avg. loss: 0.409141, running train acc: 0.847
+==>>> it: 1901, mem avg. loss: 0.140885, running mem acc: 0.955
+==>>> it: 2001, avg. loss: 0.402125, running train acc: 0.850
+==>>> it: 2001, mem avg. loss: 0.136786, running mem acc: 0.956
+==>>> it: 2101, avg. loss: 0.395021, running train acc: 0.852
+==>>> it: 2101, mem avg. loss: 0.133879, running mem acc: 0.957
+==>>> it: 2201, avg. loss: 0.393475, running train acc: 0.853
+==>>> it: 2201, mem avg. loss: 0.135230, running mem acc: 0.957
+==>>> it: 2301, avg. loss: 0.390575, running train acc: 0.853
+==>>> it: 2301, mem avg. loss: 0.133798, running mem acc: 0.958
+==>>> it: 2401, avg. loss: 0.385569, running train acc: 0.855
+==>>> it: 2401, mem avg. loss: 0.131125, running mem acc: 0.959
+[0.7635 0.871  0.     0.     0.    ]
+-----------run 0 training batch 2-------------
+size: (10000, 32, 32, 3), (10000,)
+==>>> it: 1, avg. loss: 12.354210, running train acc: 0.000
+==>>> it: 1, mem avg. loss: 0.109630, running mem acc: 0.950
+==>>> it: 101, avg. loss: 1.127880, running train acc: 0.664
+==>>> it: 101, mem avg. loss: 0.556746, running mem acc: 0.794
+==>>> it: 201, avg. loss: 0.852905, running train acc: 0.729
+==>>> it: 201, mem avg. loss: 0.461662, running mem acc: 0.825
+==>>> it: 301, avg. loss: 0.743393, running train acc: 0.767
+==>>> it: 301, mem avg. loss: 0.407162, running mem acc: 0.844
+==>>> it: 401, avg. loss: 0.662910, running train acc: 0.789
+==>>> it: 401, mem avg. loss: 0.368572, running mem acc: 0.859
+==>>> it: 501, avg. loss: 0.611857, running train acc: 0.798
+==>>> it: 501, mem avg. loss: 0.343929, running mem acc: 0.871
+==>>> it: 601, avg. loss: 0.561553, running train acc: 0.811
+==>>> it: 601, mem avg. loss: 0.321210, running mem acc: 0.881
+==>>> it: 701, avg. loss: 0.542453, running train acc: 0.817
+==>>> it: 701, mem avg. loss: 0.312337, running mem acc: 0.883
+==>>> it: 801, avg. loss: 0.506777, running train acc: 0.827
+==>>> it: 801, mem avg. loss: 0.289018, running mem acc: 0.893
+==>>> it: 901, avg. loss: 0.488201, running train acc: 0.833
+==>>> it: 901, mem avg. loss: 0.271034, running mem acc: 0.900
+==>>> it: 1001, avg. loss: 0.465998, running train acc: 0.839
+==>>> it: 1001, mem avg. loss: 0.257864, running mem acc: 0.905
+==>>> it: 1101, avg. loss: 0.453999, running train acc: 0.843
+==>>> it: 1101, mem avg. loss: 0.253704, running mem acc: 0.907
+==>>> it: 1201, avg. loss: 0.440859, running train acc: 0.848
+==>>> it: 1201, mem avg. loss: 0.240890, running mem acc: 0.912
+==>>> it: 1301, avg. loss: 0.429196, running train acc: 0.851
+==>>> it: 1301, mem avg. loss: 0.232360, running mem acc: 0.915
+==>>> it: 1401, avg. loss: 0.420950, running train acc: 0.854
+==>>> it: 1401, mem avg. loss: 0.223827, running mem acc: 0.918
+==>>> it: 1501, avg. loss: 0.408988, running train acc: 0.858
+==>>> it: 1501, mem avg. loss: 0.216034, running mem acc: 0.921
+==>>> it: 1601, avg. loss: 0.397369, running train acc: 0.862
+==>>> it: 1601, mem avg. loss: 0.208754, running mem acc: 0.924
+==>>> it: 1701, avg. loss: 0.389018, running train acc: 0.865
+==>>> it: 1701, mem avg. loss: 0.203726, running mem acc: 0.925
+==>>> it: 1801, avg. loss: 0.382188, running train acc: 0.867
+==>>> it: 1801, mem avg. loss: 0.198497, running mem acc: 0.927
+==>>> it: 1901, avg. loss: 0.377199, running train acc: 0.869
+==>>> it: 1901, mem avg. loss: 0.193586, running mem acc: 0.930
+==>>> it: 2001, avg. loss: 0.368513, running train acc: 0.872
+==>>> it: 2001, mem avg. loss: 0.187704, running mem acc: 0.932
+==>>> it: 2101, avg. loss: 0.364983, running train acc: 0.873
+==>>> it: 2101, mem avg. loss: 0.183773, running mem acc: 0.934
+==>>> it: 2201, avg. loss: 0.358772, running train acc: 0.875
+==>>> it: 2201, mem avg. loss: 0.178611, running mem acc: 0.936
+==>>> it: 2301, avg. loss: 0.354184, running train acc: 0.876
+==>>> it: 2301, mem avg. loss: 0.176068, running mem acc: 0.937
+==>>> it: 2401, avg. loss: 0.352852, running train acc: 0.876
+==>>> it: 2401, mem avg. loss: 0.175214, running mem acc: 0.937
+[0.853  0.4115 0.9235 0.     0.    ]
+-----------run 0 training batch 3-------------
+size: (10000, 32, 32, 3), (10000,)
+==>>> it: 1, avg. loss: 11.077498, running train acc: 0.000
+==>>> it: 1, mem avg. loss: 0.010142, running mem acc: 1.000
+==>>> it: 101, avg. loss: 1.106411, running train acc: 0.716
+==>>> it: 101, mem avg. loss: 0.681547, running mem acc: 0.783
+==>>> it: 201, avg. loss: 0.707279, running train acc: 0.798
+==>>> it: 201, mem avg. loss: 0.459326, running mem acc: 0.851
+==>>> it: 301, avg. loss: 0.567111, running train acc: 0.831
+==>>> it: 301, mem avg. loss: 0.391581, running mem acc: 0.869
+==>>> it: 401, avg. loss: 0.511396, running train acc: 0.841
+==>>> it: 401, mem avg. loss: 0.350192, running mem acc: 0.880
+==>>> it: 501, avg. loss: 0.457263, running train acc: 0.859
+==>>> it: 501, mem avg. loss: 0.315181, running mem acc: 0.892
+==>>> it: 601, avg. loss: 0.429075, running train acc: 0.869
+==>>> it: 601, mem avg. loss: 0.290059, running mem acc: 0.900
+==>>> it: 701, avg. loss: 0.390741, running train acc: 0.880
+==>>> it: 701, mem avg. loss: 0.263945, running mem acc: 0.909
+==>>> it: 801, avg. loss: 0.370696, running train acc: 0.887
+==>>> it: 801, mem avg. loss: 0.250986, running mem acc: 0.914
+==>>> it: 901, avg. loss: 0.351552, running train acc: 0.892
+==>>> it: 901, mem avg. loss: 0.237727, running mem acc: 0.919
+==>>> it: 1001, avg. loss: 0.332233, running train acc: 0.897
+==>>> it: 1001, mem avg. loss: 0.229118, running mem acc: 0.923
+==>>> it: 1101, avg. loss: 0.316897, running train acc: 0.901
+==>>> it: 1101, mem avg. loss: 0.218188, running mem acc: 0.926
+==>>> it: 1201, avg. loss: 0.303362, running train acc: 0.904
+==>>> it: 1201, mem avg. loss: 0.208701, running mem acc: 0.930
+==>>> it: 1301, avg. loss: 0.290934, running train acc: 0.908
+==>>> it: 1301, mem avg. loss: 0.201738, running mem acc: 0.932
+==>>> it: 1401, avg. loss: 0.285667, running train acc: 0.909
+==>>> it: 1401, mem avg. loss: 0.198626, running mem acc: 0.933
+==>>> it: 1501, avg. loss: 0.279886, running train acc: 0.911
+==>>> it: 1501, mem avg. loss: 0.191984, running mem acc: 0.935
+==>>> it: 1601, avg. loss: 0.270334, running train acc: 0.913
+==>>> it: 1601, mem avg. loss: 0.186111, running mem acc: 0.937
+==>>> it: 1701, avg. loss: 0.261908, running train acc: 0.916
+==>>> it: 1701, mem avg. loss: 0.178931, running mem acc: 0.939
+==>>> it: 1801, avg. loss: 0.256764, running train acc: 0.917
+==>>> it: 1801, mem avg. loss: 0.173743, running mem acc: 0.941
+==>>> it: 1901, avg. loss: 0.249405, running train acc: 0.919
+==>>> it: 1901, mem avg. loss: 0.169044, running mem acc: 0.943
+==>>> it: 2001, avg. loss: 0.247137, running train acc: 0.920
+==>>> it: 2001, mem avg. loss: 0.165983, running mem acc: 0.944
+==>>> it: 2101, avg. loss: 0.238779, running train acc: 0.922
+==>>> it: 2101, mem avg. loss: 0.161693, running mem acc: 0.945
+==>>> it: 2201, avg. loss: 0.232584, running train acc: 0.925
+==>>> it: 2201, mem avg. loss: 0.157419, running mem acc: 0.947
+==>>> it: 2301, avg. loss: 0.227463, running train acc: 0.926
+==>>> it: 2301, mem avg. loss: 0.153816, running mem acc: 0.948
+==>>> it: 2401, avg. loss: 0.222256, running train acc: 0.928
+==>>> it: 2401, mem avg. loss: 0.149578, running mem acc: 0.950
+[0.8035 0.31   0.4665 0.974  0.    ]
+-----------run 0 training batch 4-------------
+size: (10000, 32, 32, 3), (10000,)
+==>>> it: 1, avg. loss: 8.958338, running train acc: 0.000
+==>>> it: 1, mem avg. loss: 0.291083, running mem acc: 0.950
+==>>> it: 101, avg. loss: 0.827840, running train acc: 0.777
+==>>> it: 101, mem avg. loss: 0.476757, running mem acc: 0.854
+==>>> it: 201, avg. loss: 0.605122, running train acc: 0.832
+==>>> it: 201, mem avg. loss: 0.350809, running mem acc: 0.889
+==>>> it: 301, avg. loss: 0.524093, running train acc: 0.851
+==>>> it: 301, mem avg. loss: 0.300589, running mem acc: 0.904
+==>>> it: 401, avg. loss: 0.457775, running train acc: 0.865
+==>>> it: 401, mem avg. loss: 0.269960, running mem acc: 0.910
+==>>> it: 501, avg. loss: 0.416657, running train acc: 0.873
+==>>> it: 501, mem avg. loss: 0.242429, running mem acc: 0.919
+==>>> it: 601, avg. loss: 0.383397, running train acc: 0.882
+==>>> it: 601, mem avg. loss: 0.220126, running mem acc: 0.925
+==>>> it: 701, avg. loss: 0.358468, running train acc: 0.887
+==>>> it: 701, mem avg. loss: 0.206911, running mem acc: 0.930
+==>>> it: 801, avg. loss: 0.340934, running train acc: 0.891
+==>>> it: 801, mem avg. loss: 0.191733, running mem acc: 0.935
+==>>> it: 901, avg. loss: 0.327904, running train acc: 0.894
+==>>> it: 901, mem avg. loss: 0.181355, running mem acc: 0.939
+==>>> it: 1001, avg. loss: 0.309980, running train acc: 0.899
+==>>> it: 1001, mem avg. loss: 0.172375, running mem acc: 0.942
+==>>> it: 1101, avg. loss: 0.298648, running train acc: 0.902
+==>>> it: 1101, mem avg. loss: 0.166209, running mem acc: 0.944
+==>>> it: 1201, avg. loss: 0.286557, running train acc: 0.905
+==>>> it: 1201, mem avg. loss: 0.159253, running mem acc: 0.947
+==>>> it: 1301, avg. loss: 0.274631, running train acc: 0.908
+==>>> it: 1301, mem avg. loss: 0.150292, running mem acc: 0.950
+==>>> it: 1401, avg. loss: 0.267372, running train acc: 0.911
+==>>> it: 1401, mem avg. loss: 0.142124, running mem acc: 0.953
+==>>> it: 1501, avg. loss: 0.261713, running train acc: 0.912
+==>>> it: 1501, mem avg. loss: 0.142244, running mem acc: 0.953
+/home/christina/anaconda3/envs/lora_vit/lib/python3.11/site-packages/numpy/core/_methods.py:206: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/home/christina/anaconda3/envs/lora_vit/lib/python3.11/site-packages/numpy/core/_methods.py:198: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+==>>> it: 1601, avg. loss: 0.255381, running train acc: 0.914
+==>>> it: 1601, mem avg. loss: 0.138978, running mem acc: 0.954
+==>>> it: 1701, avg. loss: 0.247109, running train acc: 0.916
+==>>> it: 1701, mem avg. loss: 0.133024, running mem acc: 0.956
+==>>> it: 1801, avg. loss: 0.238954, running train acc: 0.919
+==>>> it: 1801, mem avg. loss: 0.128220, running mem acc: 0.957
+==>>> it: 1901, avg. loss: 0.231271, running train acc: 0.921
+==>>> it: 1901, mem avg. loss: 0.124541, running mem acc: 0.959
+==>>> it: 2001, avg. loss: 0.227800, running train acc: 0.922
+==>>> it: 2001, mem avg. loss: 0.121737, running mem acc: 0.960
+==>>> it: 2101, avg. loss: 0.222715, running train acc: 0.924
+==>>> it: 2101, mem avg. loss: 0.120681, running mem acc: 0.960
+==>>> it: 2201, avg. loss: 0.220632, running train acc: 0.925
+==>>> it: 2201, mem avg. loss: 0.120643, running mem acc: 0.960
+==>>> it: 2301, avg. loss: 0.215933, running train acc: 0.926
+==>>> it: 2301, mem avg. loss: 0.117030, running mem acc: 0.961
+==>>> it: 2401, avg. loss: 0.211773, running train acc: 0.928
+==>>> it: 2401, mem avg. loss: 0.113312, running mem acc: 0.962
+[0.4955 0.327  0.5195 0.668  0.931 ]
+-----------run 0-----------avg_end_acc 0.5882000000000001-----------train time 1943.0631215572357
+----------- Total 1 run: 1944.1739559173584s -----------
+----------- Avg_End_Acc (0.5882000000000001, nan) Avg_End_Fgt (0.3489, nan) Avg_Acc (0.7518566666666666, nan) Avg_Bwtp (0.0, nan) Avg_Fwt (0.0, nan)-----------

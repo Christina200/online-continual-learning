@@ -23,6 +23,35 @@ class CIFAR10(DatasetBase):
         self.test_data = dataset_test.data
         self.test_label = np.array(dataset_test.targets)
 
+    # def download_load(self):
+    #     # Download and load the CIFAR-10 training dataset
+    #     dataset_train = datasets.CIFAR10(root=self.root, train=True, download=True)
+    #     train_data = dataset_train.data
+    #     train_labels = np.array(dataset_train.targets)
+
+    #     # Download and load the CIFAR-10 test dataset
+    #     dataset_test = datasets.CIFAR10(root=self.root, train=False, download=True)
+    #     test_data = dataset_test.data
+    #     test_labels = np.array(dataset_test.targets)
+
+    #     # Select 100 samples from each class in the training dataset
+    #     num_samples_per_class = 100
+    #     unique_classes = np.unique(train_labels)
+    #     self.train_data = []
+    #     self.train_label = []
+    #     for cls in unique_classes:
+    #         idxs = np.where(train_labels == cls)[0][:num_samples_per_class]
+    #         self.train_data.extend(train_data[idxs])
+    #         self.train_label.extend(train_labels[idxs])
+
+    #     # Convert lists to numpy arrays
+    #     self.train_data = np.array(self.train_data)
+    #     self.train_label = np.array(self.train_label)
+
+    #     # Assign the test dataset (you can apply similar sampling if needed)
+    #     self.test_data = test_data
+    #     self.test_label = test_labels
+
     def setup(self):
         if self.scenario == 'ni':
             self.train_set, self.val_set, self.test_set = construct_ns_multiple_wrapper(self.train_data,

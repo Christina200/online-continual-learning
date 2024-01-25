@@ -2,7 +2,7 @@ import torch
 from models.resnet import Reduced_ResNet18, SupConResNet
 from torchvision import transforms
 import torch.nn as nn
-from models.vit import ViT_pretrained
+from models.vit import ViT_pretrained, SupConViT
 
 
 default_trick = {'labels_trick': False, 'kd_trick': False, 'separated_softmax': False,
@@ -52,9 +52,9 @@ transforms_match = {
 def setup_architecture(params):
     nclass = n_classes[params.data]
     if params.agent in ['SCR', 'SCP']:
-        if params.data == 'mini_imagenet':
-            return SupConResNet(640, head=params.head)
-        return SupConResNet(head=params.head)
+        # if params.data == 'mini_imagenet':
+        #     return SupConResNet(640, head=params.head)
+        return SupConViT(n_classes=nclass, head=params.head) # SupConResNet(head=params.head)
     if params.agent == 'CNDPM':
         from models.ndpm.ndpm import Ndpm
         return Ndpm(params)

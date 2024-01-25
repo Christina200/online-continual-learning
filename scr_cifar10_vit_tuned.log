@@ -1,0 +1,158 @@
+/home/christina/anaconda3/envs/lora_vit/lib/python3.11/site-packages/numpy/core/_methods.py:206: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/home/christina/anaconda3/envs/lora_vit/lib/python3.11/site-packages/numpy/core/_methods.py:198: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+Namespace(num_runs=1, seed=0, val_size=0.1, num_val=3, num_runs_val=3, error_analysis=False, verbose=True, store=False, save_path=None, agent='SCR', update='random', retrieve='random', optimizer='Adam', learning_rate=0.0001, epoch=1, batch=4, test_batch=128, weight_decay=0.0001, num_tasks=5, fix_order=True, plot_sample=False, data='cifar10', cl_type='nc', ns_factor=(0.0, 0.4, 0.8, 1.2, 1.6, 2.0, 2.4, 2.8, 3.2, 3.6), ns_type='noise', ns_task=(1, 1, 2, 2, 2, 2), online=True, mem_size=1000, eps_mem_batch=100, lambda_=100, alpha=0.9, fisher_update_after=50, subsample=50, gss_mem_strength=10, gss_batch_size=10, k=5, aser_type='asvm', n_smp_cls=2.0, stm_capacity=1000, classifier_chill=0.01, log_alpha=-300, minlr=0.0005, clip=10.0, mem_epoch=70, labels_trick=False, separated_softmax=False, kd_trick=False, kd_trick_star=False, review_trick=False, ncm_trick=False, mem_iters=1, min_delta=0.0, patience=0, cumulative_delta=False, temp=0.07, buffer_tracker=False, warmup=4, head='mlp', cuda=True)
+Setting up data stream
+Files already downloaded and verified
+Files already downloaded and verified
+data setup time: 1.0874011516571045
+Task: 0, Labels:[0, 1]
+Task: 1, Labels:[2, 3]
+Task: 2, Labels:[4, 5]
+Task: 3, Labels:[6, 7]
+Task: 4, Labels:[8, 9]
+buffer has 1000 slots
+-----------run 0 training batch 0-------------
+size: (10000, 32, 32, 3), (10000,)
+==>>> it: 1, avg. loss: 5.995120, 
+==>>> it: 101, avg. loss: 5.096707, 
+==>>> it: 201, avg. loss: 5.087602, 
+==>>> it: 301, avg. loss: 5.019919, 
+==>>> it: 401, avg. loss: 4.967028, 
+==>>> it: 501, avg. loss: 4.929688, 
+==>>> it: 601, avg. loss: 4.900366, 
+==>>> it: 701, avg. loss: 4.878080, 
+==>>> it: 801, avg. loss: 4.860560, 
+==>>> it: 901, avg. loss: 4.844728, 
+==>>> it: 1001, avg. loss: 4.831750, 
+==>>> it: 1101, avg. loss: 4.820587, 
+==>>> it: 1201, avg. loss: 4.810937, 
+==>>> it: 1301, avg. loss: 4.802655, 
+==>>> it: 1401, avg. loss: 4.795197, 
+==>>> it: 1501, avg. loss: 4.788668, 
+==>>> it: 1601, avg. loss: 4.783129, 
+==>>> it: 1701, avg. loss: 4.777686, 
+==>>> it: 1801, avg. loss: 4.773238, 
+==>>> it: 1901, avg. loss: 4.769017, 
+==>>> it: 2001, avg. loss: 4.765272, 
+==>>> it: 2101, avg. loss: 4.761744, 
+==>>> it: 2201, avg. loss: 4.758454, 
+==>>> it: 2301, avg. loss: 4.755588, 
+==>>> it: 2401, avg. loss: 4.752970, 
+[0.993 0.    0.    0.    0.   ]
+-----------run 0 training batch 1-------------
+size: (10000, 32, 32, 3), (10000,)
+==>>> it: 1, avg. loss: 4.685107, 
+==>>> it: 101, avg. loss: 4.599037, 
+==>>> it: 201, avg. loss: 4.538461, 
+==>>> it: 301, avg. loss: 4.492351, 
+==>>> it: 401, avg. loss: 4.458313, 
+==>>> it: 501, avg. loss: 4.426467, 
+==>>> it: 601, avg. loss: 4.395694, 
+==>>> it: 701, avg. loss: 4.370860, 
+==>>> it: 801, avg. loss: 4.348786, 
+==>>> it: 901, avg. loss: 4.328679, 
+==>>> it: 1001, avg. loss: 4.310661, 
+==>>> it: 1101, avg. loss: 4.295003, 
+==>>> it: 1201, avg. loss: 4.279815, 
+==>>> it: 1301, avg. loss: 4.267270, 
+==>>> it: 1401, avg. loss: 4.255152, 
+==>>> it: 1501, avg. loss: 4.243668, 
+==>>> it: 1601, avg. loss: 4.233719, 
+==>>> it: 1701, avg. loss: 4.224181, 
+==>>> it: 1801, avg. loss: 4.215896, 
+==>>> it: 1901, avg. loss: 4.208238, 
+==>>> it: 2001, avg. loss: 4.201149, 
+==>>> it: 2101, avg. loss: 4.194082, 
+==>>> it: 2201, avg. loss: 4.187595, 
+==>>> it: 2301, avg. loss: 4.182147, 
+==>>> it: 2401, avg. loss: 4.176808, 
+[0.9345 0.964  0.     0.     0.    ]
+-----------run 0 training batch 2-------------
+size: (10000, 32, 32, 3), (10000,)
+==>>> it: 1, avg. loss: 4.047467, 
+==>>> it: 101, avg. loss: 4.042764, 
+==>>> it: 201, avg. loss: 4.017570, 
+==>>> it: 301, avg. loss: 3.994037, 
+==>>> it: 401, avg. loss: 3.973319, 
+==>>> it: 501, avg. loss: 3.953901, 
+==>>> it: 601, avg. loss: 3.938097, 
+==>>> it: 701, avg. loss: 3.921146, 
+==>>> it: 801, avg. loss: 3.906426, 
+==>>> it: 901, avg. loss: 3.892247, 
+==>>> it: 1001, avg. loss: 3.880084, 
+==>>> it: 1101, avg. loss: 3.868640, 
+==>>> it: 1201, avg. loss: 3.858043, 
+==>>> it: 1301, avg. loss: 3.848086, 
+==>>> it: 1401, avg. loss: 3.838414, 
+==>>> it: 1501, avg. loss: 3.829927, 
+==>>> it: 1601, avg. loss: 3.821799, 
+==>>> it: 1701, avg. loss: 3.814616, 
+==>>> it: 1801, avg. loss: 3.808033, 
+==>>> it: 1901, avg. loss: 3.801324, 
+==>>> it: 2001, avg. loss: 3.795271, 
+==>>> it: 2101, avg. loss: 3.789660, 
+==>>> it: 2201, avg. loss: 3.784686, 
+==>>> it: 2301, avg. loss: 3.780253, 
+==>>> it: 2401, avg. loss: 3.775937, 
+[0.921 0.606 0.94  0.    0.   ]
+-----------run 0 training batch 3-------------
+size: (10000, 32, 32, 3), (10000,)
+==>>> it: 1, avg. loss: 3.608685, 
+==>>> it: 101, avg. loss: 3.650472, 
+==>>> it: 201, avg. loss: 3.625584, 
+==>>> it: 301, avg. loss: 3.606848, 
+==>>> it: 401, avg. loss: 3.590075, 
+==>>> it: 501, avg. loss: 3.577230, 
+==>>> it: 601, avg. loss: 3.565632, 
+==>>> it: 701, avg. loss: 3.554040, 
+==>>> it: 801, avg. loss: 3.545111, 
+==>>> it: 901, avg. loss: 3.535203, 
+==>>> it: 1001, avg. loss: 3.525401, 
+==>>> it: 1101, avg. loss: 3.517249, 
+==>>> it: 1201, avg. loss: 3.509303, 
+==>>> it: 1301, avg. loss: 3.502204, 
+==>>> it: 1401, avg. loss: 3.496256, 
+==>>> it: 1501, avg. loss: 3.489639, 
+==>>> it: 1601, avg. loss: 3.483925, 
+==>>> it: 1701, avg. loss: 3.478666, 
+==>>> it: 1801, avg. loss: 3.473925, 
+==>>> it: 1901, avg. loss: 3.468989, 
+==>>> it: 2001, avg. loss: 3.465088, 
+==>>> it: 2101, avg. loss: 3.460927, 
+==>>> it: 2201, avg. loss: 3.457220, 
+==>>> it: 2301, avg. loss: 3.453688, 
+==>>> it: 2401, avg. loss: 3.450245, 
+[0.795  0.3885 0.6815 0.9815 0.    ]
+-----------run 0 training batch 4-------------
+size: (10000, 32, 32, 3), (10000,)
+==>>> it: 1, avg. loss: 3.378059, 
+==>>> it: 101, avg. loss: 3.336104, 
+==>>> it: 201, avg. loss: 3.315204, 
+==>>> it: 301, avg. loss: 3.297823, 
+==>>> it: 401, avg. loss: 3.288759, 
+==>>> it: 501, avg. loss: 3.278920, 
+==>>> it: 601, avg. loss: 3.270183, 
+==>>> it: 701, avg. loss: 3.263912, 
+==>>> it: 801, avg. loss: 3.258308, 
+==>>> it: 901, avg. loss: 3.251704, 
+==>>> it: 1001, avg. loss: 3.245044, 
+==>>> it: 1101, avg. loss: 3.239716, 
+==>>> it: 1201, avg. loss: 3.235107, 
+==>>> it: 1301, avg. loss: 3.230144, 
+==>>> it: 1401, avg. loss: 3.225942, 
+==>>> it: 1501, avg. loss: 3.222004, 
+==>>> it: 1601, avg. loss: 3.218503, 
+==>>> it: 1701, avg. loss: 3.214822, 
+==>>> it: 1801, avg. loss: 3.212391, 
+==>>> it: 1901, avg. loss: 3.208927, 
+==>>> it: 2001, avg. loss: 3.206192, 
+==>>> it: 2101, avg. loss: 3.203356, 
+==>>> it: 2201, avg. loss: 3.200807, 
+==>>> it: 2301, avg. loss: 3.198292, 
+==>>> it: 2401, avg. loss: 3.196746, 
+[0.5755 0.4375 0.805  0.8345 0.9695]
+-----------run 0-----------avg_end_acc 0.7243999999999999-----------train time 25160.973855495453
+----------- Total 1 run: 25162.061317920685s -----------
+----------- Avg_End_Acc (0.7243999999999999, nan) Avg_End_Fgt (0.24519999999999995, nan) Avg_Acc (0.8401216666666667, nan) Avg_Bwtp (0.0, nan) Avg_Fwt (0.0, nan)-----------
